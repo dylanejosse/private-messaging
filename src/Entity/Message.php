@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,12 @@ class Message
      * @ORM\JoinColumn(nullable=false)
      */
     private $recipient;
+
+    // This construct allows to automatically add the created date of the message
+    public function __construct()
+    {
+        $this->created_at = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
