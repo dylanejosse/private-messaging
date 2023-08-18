@@ -54,6 +54,7 @@ class Message
     public function __construct()
     {
         $this->created_at = new DateTimeImmutable();
+        $this->is_read = 0;
     }
 
     public function getId(): ?int
